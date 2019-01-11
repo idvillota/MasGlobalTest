@@ -1,0 +1,34 @@
+﻿@page
+@model MasGlobal.Web.Pages.Employees.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Employees</h2>
+<form>
+    Employee Id:<input type="text" asp-for="EmployeeId" />
+    <input type="submit" value="Get Employees" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+        <tbody>
+            @foreach (var item in Model.employees)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.RoleName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+            </tr>
+            }
+
+        </tbody>
+</table>
